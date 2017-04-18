@@ -1,6 +1,8 @@
-angular.module('myApp')
+angular.module('myApp', )
 
-.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
+console.log('controllers');
+
+app.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
   $scope.user = {
     name: '',
     password: ''
@@ -18,7 +20,7 @@ angular.module('myApp')
   };
 })
 
-.controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state) {
+app.controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state) {
   $scope.user = {
     name: '',
     password: ''
@@ -40,7 +42,7 @@ angular.module('myApp')
   };
 })
 
-.controller('InsideCtrl', function($scope, AuthService, API_ENDPOINT, $http, $state) {
+app.controller('InsideCtrl', function($scope, AuthService, API_ENDPOINT, $http, $state) {
   $scope.destroySession = function() {
     AuthService.logout();
   };
@@ -57,7 +59,7 @@ angular.module('myApp')
   };
 })
 
-.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+app.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
   $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
     AuthService.logout();
     $state.go('outside.login');

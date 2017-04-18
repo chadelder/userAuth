@@ -1,6 +1,6 @@
-var app = angular.module("myApp", []);
+var app = angular.module('myApp', ['ui.router']);
 console.log("Yo!");
-/*app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
   .state('outside', {
@@ -37,4 +37,4 @@ app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
       }
     }
   });
-});*/
+});

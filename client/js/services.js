@@ -1,6 +1,8 @@
 angular.module('myApp')
 
-.service('AuthService', function($q, $http, API_ENDPOINT) {
+console.log('services');
+
+app.service('AuthService', function($q, $http, API_ENDPOINT) {
   var LOCAL_TOKEN_KEY = 'yourTokenKey';
   var isAuthenticated = false;
   var authToken;
@@ -71,7 +73,7 @@ angular.module('myApp')
   };
 })
 
-.factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
+app.factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
   return {
     responseError: function (response) {
       $rootScope.$broadcast({
@@ -82,6 +84,6 @@ angular.module('myApp')
   };
 })
 
-.config(function ($httpProvider) {
+app.config(function ($httpProvider) {
   $httpProvider.interceptors.push('AuthInterceptor');
 });
