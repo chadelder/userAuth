@@ -1,8 +1,8 @@
-angular.module('myApp', )
+angular.module('myApp')
 
 console.log('controllers');
 
-app.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
+app.controller('LoginCtrl', function($scope, AuthService, $state) { //$ionicPopup
   $scope.user = {
     name: '',
     password: ''
@@ -12,15 +12,15 @@ app.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
     AuthService.login($scope.user).then(function(msg) {
       $state.go('inside');
     }, function(errMsg) {
-      var alertPopup = $ionicPopup.alert({
-        title: 'Login failed!',
-        template: errMsg
-      });
+      //var alertPopup = $ionicPopup.alert({
+      //  title: 'Login failed!',
+      //  template: errMsg,
+      //});
     });
   };
 })
 
-app.controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state) {
+app.controller('RegisterCtrl', function($scope, AuthService, $state) { //$ionicPopup
   $scope.user = {
     name: '',
     password: ''
@@ -29,15 +29,15 @@ app.controller('RegisterCtrl', function($scope, AuthService, $ionicPopup, $state
   $scope.signup = function() {
     AuthService.register($scope.user).then(function(msg) {
       $state.go('outside.login');
-      var alertPopup = $ionicPopup.alert({
-        title: 'Register success!',
-        template: msg
-      });
+      //var alertPopup = $ionicPopup.alert({
+        //title: 'Register success!',
+        //template: msg
+      //});
     }, function(errMsg) {
-      var alertPopup = $ionicPopup.alert({
-        title: 'Register failed!',
-        template: errMsg
-      });
+      //var alertPopup = $ionicPopup.alert({
+        //title: 'Register failed!',
+        //template: errMsg
+      //});
     });
   };
 })
@@ -59,13 +59,13 @@ app.controller('InsideCtrl', function($scope, AuthService, API_ENDPOINT, $http, 
   };
 })
 
-app.controller('AppCtrl', function($scope, $state, $ionicPopup, AuthService, AUTH_EVENTS) {
+app.controller('AppCtrl', function($scope, $state, AuthService, AUTH_EVENTS) { //ionicPopup issue $ionicPopup
   $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
     AuthService.logout();
     $state.go('outside.login');
-    var alertPopup = $ionicPopup.alert({
-      title: 'Session Lost!',
-      template: 'Sorry, You have to login again.'
-    });
+    //var alertPopup = $ionicPopup.alert({
+      //title: 'Session Lost!',
+      //template: 'Sorry, You have to login again.'
+    //});
   });
 });

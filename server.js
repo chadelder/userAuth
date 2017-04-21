@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // get static files
 app.use(express.static(__dirname + '/client'));
-//app.use('/client', express.static('libraries')));
+app.use('/libraries', express.static('/client'));
 
 // log to console
 app.use(morgan('dev'));

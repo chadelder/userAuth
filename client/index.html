@@ -7,11 +7,12 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <!--link rel="icon" href="../../favicon.ico"-->
     <title>Signin Template for Bootstrap</title>
 
     <!-- Angular CDN -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <scipt src="libraries/angular-ui-router.min.js"></script>
 
     <!-- bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -23,7 +24,7 @@
 
   <body ng-app="myApp">
 
-    <div class="container">
+    <!--div class="container">
 
       <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -38,7 +39,7 @@
           </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login()">Login In</button>
           <button class="btn btn-lg btn-primary btn-block" type="submit" ui-sref="outside.register">Register</button>
-        <!--/div-->
+        <div-->
       </form>
 
     </div> <!-- /container -->
@@ -57,6 +58,10 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/constants.js"></script>
+
+    <!-- Route -->
+    <script src="libraries/angular-ui-router.min.js"></script>
+
 
   </body>
 </html>

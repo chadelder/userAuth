@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl'
   })
-  .state('outside.register', {
+  .state('register', {
     url: '/register',
     templateUrl: 'templates/register.html',
     controller: 'RegisterCtrl'
@@ -31,7 +31,7 @@ app.run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
   $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
     if (!AuthService.isAuthenticated()) {
       console.log(next.name);
-      if (next.name !== 'outside.login' && next.name !== 'outside.register') {
+      if (next.name !== 'outside.login' && next.name !== 'register') {
         event.preventDefault();
         $state.go('outside.login');
       }
